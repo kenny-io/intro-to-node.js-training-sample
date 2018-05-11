@@ -1,5 +1,7 @@
-# Database and ORM
+# Exercise 4: Database and ORM
+
 **Overview**
+
 Here we’ll look into Node.Js Databases and relational mapping modules. We’ll further explain how to use Node.Js ORM and the supported databases like MySQL, MongoDB and so on. In the process we’ll set up mongodDB and build a Node application that stores users into a mongoDB  and PostgreSQL databases. Before we dive into all that, it is important that we understand what Data storage means.
 
 
@@ -43,20 +45,24 @@ Here’ll we’ll dive deeper into databases, explore the different types and eq
 Using databases solves all the problems we had with the last technique of storing files in application memory or even in files. When we deal with databases, it is often best to explain how they work with respect to the two very distinct types of databases today. SQL and NoSQL databases. In this task you will understand the concept of SQL and NoSQL databases and we’ll also go ahead to setup MongoDB with our Node application for a more practical experience.
 
 **SQL**
+
 SQL is a query language designed to work with relational databases. SQL databases have a couple of flavors depending on the product you're using, but the fundamentals are the same in each of them. The data itself will be stored in tables, and each inserted piece will be represented as a row in the table, just like in Google Sheets, or Microsoft Excel.
 
 Within an SQL database, you can define schemas. These schemas will provide a skeleton for the data you'll put in there. The types of the different values have to be explicitly set before you can store your data. For example, when you want to store the data of a user say (username and age), you'll have to define a table for that user data, and you also have to tell the database that it has a username which is a string, and age, which is of type integer.
 
 **Pros**
+
 SQL enables communicating with the databases and receive answers to complex questions in seconds.
 SQL views the data without storing the it in the object. It adheres to a long-established, clear standard
 
 **NoSQL**
+
 NoSQL databases have become quite popular in the last decade. You can simply see it as an upgrade from the SQL. With NoSQL you don't have to define a schema and you can store any arbitrary JSON. This is handy with JavaScript because we can turn any object into a JSON pretty easily. 
 
 However one has to be careful when using NoSQL databases because you can never guarantee that the data is consistent, and you can never know what is in the database.
 
 **Pros**
+
 NoSQL can handle large volumes of structured, semi-structured, and unstructured data
 Interacts quickly
 Flexible and object-oriented
@@ -77,6 +83,7 @@ To get the database up and running we have two major options:
 We’ll be going with the later as it’ll provide you more experience in setting up your database even for production. So lets get started setting up on mLab.
 
 **Setting up mLab**
+
 Open [mLab](https://www.mlab.com), sign up and when successful, click the lightning **create a new** button.
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_D5B2E5A967E6F06DB782CD59272B7D60D4CCF3D8A17086E038B9AB4FD9CBBA58_1525779955353_createNew.jpg)
@@ -164,6 +171,7 @@ This should output some version numbers like `v3.6.0` if successfully installed.
 Now that we have completed our mongoDB set up process, how do we connect it to our Node application so we can read and write to it ?. This task will provide a basic walk through to achieving this fit in very simple steps.
 
 **Step 1: Install Dotenv and Mongoose**
+
 Now we need to install the `dotenv` package so we can store our projects environment variables securely in it. Environment variables are the datas in our project that we want to keep secured and never commit to a public repo. Mongoose is like an interface for mongoDB that allows us interact with the mongoDB database.
 
 To install the packages, navigate to the terminal and run:
@@ -196,6 +204,7 @@ While creating your database user, you defined a username and password, now upda
 Refer to your `mlab` database for these details if you forget them.
 
 **Step 2: Connect to database**
+
 Now open your projects `index.js` file and update it like so:
 
 ```javascript
@@ -226,9 +235,11 @@ Now open your projects `index.js` file and update it like so:
 Now we have successfully connected our Node application to the mongoDB database. Next let’s make an attempt to store data to the database. 
 
 **Task 5: Add data to database**
+
 This task will demonstrate how we can add data to our mongoDB database and perform some basic operations on it.
 
-**Step 1: Create a template to addUsers**
+**Step 1: Create a template to add users**
+
 Since we are rendering data to the screen using the ejs template, lets create another ejs file that will hold a form to collect a users name and age. This is how we’ll add them to our database. So inside the project `views` folder, create a new file called `addUser.ejs` and set it up like so:
 
 ```ejs
@@ -287,6 +298,7 @@ You will get this result printed out on screen.
 Nice. This works but that’s not the goal. We intend to store these data into our database and not just print them on screen. To do that, we need to first create a database schema.
 
 **Create a database schema**
+
 Like we said earlier in the beginning of this exercise, databases needs schemas to help set the data type of the data that will be flowing into them. Once the user enters data in the input field and clicks the **Add User** button, we want the contents of the input field to be stored in the database. 
 
 In order to know the format of the data in the database, we need to have a Schema.
@@ -377,6 +389,7 @@ And here it is, just as expected!. Now if you open your mongoDB compass, you sho
 In this task we are going to demonstrate how to set up a Node.js application with the PostgreSQL database. To have PostgreSQL up and running you have to install it on your computer but we’ll not go into the details of the installing Postgres, we’ll however provide a link where you can get that [installation guides](http://To have PostgreSQL up and running you have to install it on your computer). Working on the assumption that you now have Node.js installed on your computer, we’ll go ahead and demonstrate how to set it up with your Node.js application.
 
 **Step 1: Install the pg Library**
+
 With your Postgres server up and running on the default port 5432 or your custom port, making a database connection is easy with the [pg](https://www.npmjs.com/package/pg) library. Navigate to your terminal and run:
 
 ```bash
@@ -386,6 +399,7 @@ With your Postgres server up and running on the default port 5432 or your custom
 This will now add the Postgresql package to our application module.
 
 **Step 2:** **Create the database and users table**
+
 The first thing as always will be to create the database where we’d like to store data. In Postgres, we all also create tables to hold each incoming data from the application. To create the database, navigate to your terminal and run :
 
 ```bash
@@ -433,8 +447,8 @@ Here we have just established a basic interaction with our Postgres database thr
 
 We have specified just two variables, username and age.
 
-**Task 2: Add users to database**
-Now let’s set up the routing system. We’ll define another endpoint `'``/addUsers``'` where we’ll post our user details to. When we receive the details (username and age) in the `req.body` object, we’ll then save it into our database. So update the the `postgresdb.js` file with this code:
+**Add users to database**
+Now let’s set up the routing system. We’ll define another endpoint `'/addUsers'` where we’ll post our user details to. When we receive the details (username and age) in the `req.body` object, we’ll then save it into our database. So update the the `postgresdb.js` file with this code:
 
 
 ```javascript
