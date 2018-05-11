@@ -1,5 +1,7 @@
-# Deploying a Node app
+# Exercise 7: Deploying a Node app
+
 **Overview**
+
 Once your site is finished, you're going to need to host it somewhere more public and accessible than your personal development computer. Up to now you've been working in a [development environment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment), using Express/Node as a web server to share your site to the local browser/network.
 
 Hence you’ve been running your website with (insecure) development settings that expose debugging and other private information. Before you can host a website externally, you’re going to properly satisfy this:
@@ -278,7 +280,7 @@ When this operation completes, you should be able to go back to the page on Gith
 
 ## Task 6: Update the app for Heroku
 
-This section explains the changes you'll need to make to our Node application to get it to work on Heroku.
+This task explains the changes you'll need to make to our Node application to get it to work on Heroku.
 
 **Set node version**
  
