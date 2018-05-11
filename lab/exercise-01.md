@@ -1,16 +1,17 @@
 # Intro to Node.js
 
-## **Module 1: Setup and Basics**
+## **Exercise 1: Setup and Basics**
 
 **Overview**
+
 In this section you will learn how to setup your environment for optimal Node development. You will install and configure a few tools as well as run a simple Node.js example to test everything out.
 
 **Time Estimate**
 20 minutes
 
-**Section 1: Setup**
+**Task 1: Setup**
 
-Task 1: Install Node.js
+Install Node.js
 
 
 1. Inside your Virtual Machine open the terminal by clicking the **desktop menu**, **System Tools**, and then click **LXTerminal**.
@@ -42,6 +43,7 @@ node -v
 At this point, you have Node installed on your machine. Now lets proceed with running a Node example.
 
 **Task 2: Install Google Chrome**
+
 Our Virtual Machine comes with Firefox, but Google Chrome has some special capabilities for debugging Node.js applications. As such, this is the preferred browser for use in this lab.
 
 1. Open Firefox by clicking the **desktop menu**, **Internet**, and then click **Firefox**.
@@ -75,7 +77,8 @@ sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_1570DA20F9C9FD2F15B8805B5DF78BF6EAE65EDD8C1AB7B8A715AB5C25919BE0_1525619775714_open-chrome.png)
 
 
-**Section 2: Visual Studio Code and Prettier Extension**
+**Task 3: Visual Studio Code and Prettier Extension**
+
 Prettier enables you to automatically format your Javascript code in a simple and clean manner. After you have been developing for some time you may prefer another way of formatting your code, but by using prettier you will ensure your code looks the same as the code in this lab.
 
 1. Launch VS Code. Click the **desktop menu**, **Accessories**, then **Visual Studio Code**:
@@ -100,7 +103,7 @@ CTRL + P
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_1570DA20F9C9FD2F15B8805B5DF78BF6EAE65EDD8C1AB7B8A715AB5C25919BE0_1525619822283_prettier-download2.png)
 
 
-Section 3: Node Modules
+**Task 4: Node Modules
 
 To better understand Node modules, consider them to be the same as JavaScript libraries. A set of functions you want to include in your application. This modules allows us do some specific things through their inbuilt functions and methods.
 
@@ -121,7 +124,8 @@ var http = require ('http');
 
 We'll dive into more details about it when we run a node example later on in this course module.
 
-**Section 4: Running a Node example**
+**Task 5: Running a Node example**
+
 In this section you will learn how to use NPM to install a Node package and reference it from your app.
 
 1. Open the terminal and make a new directory for your code projects. Then create a folder in the code project for your first code exercise:
@@ -227,5 +231,6 @@ node index.js
 You should see 'Server started' in the terminal. Great! Now open your web browser and go to 'http://localhost:8080' you should see your 'Hello World' message.
 
 **Summary**
+
 In this exercise you setup your basic Node development environment and installed some basic developement tools like VSCode and Chrome. You used npm to initialize an application and install a package. Finally, you wrote a simple CLI script and ran that script with Node.
 
