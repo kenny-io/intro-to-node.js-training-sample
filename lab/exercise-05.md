@@ -1,13 +1,17 @@
-# REST API’s
-**O****verview**
+# Exercise 5: REST API’s
+
+**Overview**
+
 This exercise will focus on the core concepts of Restful API architecture. We will understand the various REST representations, HTTP methods and the Restful web services. Furthermore, this module will exemplify Restful concepts to provide  a more hands-on experience as we’ll build a simple REST API in our Node.js application.
 
 We can’t fully explain the concepts of REST API’s without first understanding what the term means. So lets look at the individual acronyms to shine more light on them:
 
 **REST**
+
 [REST](https://www.codementor.io/restful/tutorial/rest-api-design-best-practices-strategy) is an acronym for Representational State Transfer. It is web standards architecture and HTTP Protocol. RESTful applications use HTTP requests to perform four basic operations termed as CRUD (C: create, R: read, U: update, and D: delete).  We’ll look deeper into these operations later in this exercise.
 
 **API**
+
 API is an acronym for **Application Programming Interface.** It is a set of programming routines, protocols, instructions and standards for accessing a web based application. It is simply the layer of an application that can interact with other applications.
 
 
@@ -26,6 +30,7 @@ In general, REST is a design pattern, a way of designing a web application to ex
 The ways through which we interact with this resources are called operations. 
 
 **Task 1: Understanding REST Operations**
+
 To make operations on resources, REST uses pairs of request and responses, through four major  HTTP methods or verbs:
 
 - GET: to read a resource.
@@ -36,6 +41,7 @@ To make operations on resources, REST uses pairs of request and responses, throu
 To better understand the REST Operations and HTTP Methods, we’ll build a simple REST API to help us store users to our mongoDB database. This API will equally allow us perform CRUD operations on the list of users we save to our database.
 
 **Task 2: Implementing REST API in Node.js**
+
 In this task, we’ll develop an API where we’ll manage users. The flow is we will add users to our database and then perform CRUD operations on the users we have in the database.
 
 Now in your project root folder, create a new file called `apiindex.js` and update with this:
@@ -80,7 +86,8 @@ Then open your browser and navigate to `127.0.0.1:3030/apiindex` and you will ge
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_F1C2D8422225F8FE9C031B22833D81B7BBF571D20AF525798AA7B3D233BED225_1525869358312_apiindex.jpg)
 
 
-**Creating our app Model**
+**Task 3: Creating our app Model**
+
 Cool, we are all set up! now lets create a model for our app. In the last exercise we had all our codes inside the `index.js` file so as not to complicate things by creating numerous folders and files. With your experience from that exercise, we’ll go ahead and better arrange our code structure by creating models in this exercise. Inside the project root, create a new folder called `models`. 
 
 The Model will represent the information of the application and the rules used to manipulate the data. In our case, our model will represent a user. Inside the `models` folder, create a new file called `users.js` and set it up like so:
@@ -104,7 +111,8 @@ Then, we use `module.exports` to export this model file so we can use it from ot
     mongoose.connect(process.env.DATABASE);
 ```
 
-**Implementing CRUD Operations**
+**Task 4: Implementing CRUD Operations**
+
 Now, we have to modify our `apiindex.js` file, such that we will be  able to create, read, update & delete users from our database. To manage what our app will do for every route or action requested, we will use a controller. So within your project root directory, create a new folder called `controllers`. Inside this folder, create a new file called `UsersController.js` and add this code to it:
 
 ```javascript
@@ -131,7 +139,8 @@ Now, we have to modify our `apiindex.js` file, such that we will be  able to cre
     };
 ```
 
-**HTTP methods**
+**Task 4: HTTP methods**
+
 These functions will simply perform the defined CRUD operations on the users in our database. You can find their respective codes on this gist. Now let’s setup our `apiindex.js` file with the appropriate HTTP methods that will handle ~~how~~ our routes responses. Let’s update our `apiindex.js` file with this:
 
 ```javascript
@@ -145,19 +154,14 @@ These functions will simply perform the defined CRUD operations on the users in 
 
 These added lines simply tells our server that if it receives a POST request to the `'``/users``'` route, the routine ‘create’ in our `UsersController.js` file will manage it and so on. Also, there are two GET routes: `'``/users``'` and `'``/users/:id``'`. The first one will return all the users in our database while the second one will only display the user with the id used as argument.
 
-**Testing our REST API**
+**Task 5: Testing our REST API**
+
 Now we have completed our REST API. To ensure that it works as expected, we’ll test it with `POSTMAN`. It is basically just a HTTP client for testing web services. Open it up if you have it installed on your system or simply download and install from [here](http://www.getpostman.com).
 
 First, we’ll create our first user resource. Open POSTMAN and select a POST operation on `127.0.0.1:3030/users`. Now, fill in the keys and values section of the user you want to insert to the database. Finally, press the Postman **Send** and check the response from the server. If nothing goes wrong, you should receive a JSON with the data of the created user in the database.
 
 **Summary**
+
 In this exercise, we have gone through the core concepts of creating a REST API. We looked into the features of the REST concept and how it communicates with the API. For a more practical approach, we demonstrated the Operations and HTTP methods through the implementation of the API with our Node application when we built a simple REST API to manage users in a mongoDB database.
 
-
-
-
-
-
-
-.................................................................................................
 
