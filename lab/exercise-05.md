@@ -141,7 +141,7 @@ Now, we have to modify our `apiindex.js` file, such that we will be  able to cre
 
 **Task 4: HTTP methods**
 
-These functions will simply perform the defined CRUD operations on the users in our database. You can find their respective codes on this gist. Now let’s setup our `apiindex.js` file with the appropriate HTTP methods that will handle ~~how~~ our routes responses. Let’s update our `apiindex.js` file with this:
+These functions will simply perform the defined CRUD operations on the users in our database. You can find their respective codes on this gist. Now let’s setup our `apiindex.js` file with the appropriate HTTP methods that will handle our routes responses. Let’s update our `apiindex.js` file with this:
 
 ```javascript
     var UsersController= require("./controllers/UsersController");
@@ -152,7 +152,7 @@ These functions will simply perform the defined CRUD operations on the users in 
     app.delete("/users/:id",UsersController.delete); // Delete
 ```
 
-These added lines simply tells our server that if it receives a POST request to the `'``/users``'` route, the routine ‘create’ in our `UsersController.js` file will manage it and so on. Also, there are two GET routes: `'``/users``'` and `'``/users/:id``'`. The first one will return all the users in our database while the second one will only display the user with the id used as argument.
+These added lines simply tells our server that if it receives a POST request to the `'/users'` route, the routine ‘create’ in our `UsersController.js` file will manage it and so on. Also, there are two GET routes: `'/users'` and `'/users/:id'`. The first one will return all the users in our database while the second one will only display the user with the id used as argument.
 
 **Task 5: Testing our REST API**
 
