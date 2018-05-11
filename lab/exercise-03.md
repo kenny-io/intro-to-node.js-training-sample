@@ -1,8 +1,10 @@
-# Routing and Templating
+## Exercise 3: Routing and Templating
+
 **Overview**
+
 This module we introduce the concept of routing and templating. We’ll dive more into the use of routes to navigate users through the pages of a Node app. We’ll look into features like Express, Routes, Controller function and Views. We’ll also exemplify the Node.Js templating concepts.
 
-## Section 1: Express
+## Task 1: Install Express
 
 Express is a fast, unopinionated, minimalist web framework for [Node.js](https://nodejs.org/en/). It is through the Express object that we can access the router. Add the express package to your project by running:
 
@@ -28,11 +30,12 @@ Finally we create an instance of the express object `app` like this:
 const app = express();
 ```
 
-## Section 2: Routing
+## Task 2: Routing
 
 Routing refers to how an application’s endpoints (URIs) respond to client requests. When users hit a particular route (endpoint), you want something to happen, like update add to a database, modify an existing data, redirect to a new page and so on. Routing helps you achieve all that through its inbuilt routing methods.
 
 **Route Methods**
+
 Route methods specify a callback function (sometimes called “handler or controller functions”). These functions are called when the application receives a request to the specified route (endpoint) and HTTP method. In other words, the application “listens” for requests that match the specified route(s) and method(s), and when it detects a match, it calls the specified callback function. the callback functions take in two major parameters (`req` and `res`) to define the request and response respectively: 
 
 ```javascript
@@ -50,10 +53,12 @@ On special cases, it takes a third parameter `next` to pass control to the next 
     })
 ```
 
-**Task 1: Make a get request**
-In this task, you will make a simple get request to a defined route `(``'``/``'``)` and get a response with an output when the defined endpoint is reached.
+**Make a get request**
+
+You will make a simple get request to a defined route `('/')` and get a response with an output when the defined endpoint is reached.
 
 **GET**
+
 To make a simple get request and get a response, first we require the express package that was installed earlier. Then, we create an instance named `app` by invoking Express. Now open your project `index.js` file, delete all existing codes and update it with this code:
 
 ```javascript    
@@ -95,6 +100,7 @@ On the `127.0.0.1:8080/name` route, you should now get this:
 
 
 **POST**
+
 Just like the GET method, we use the POST method to send data to a defined route. The post method works the same way as the get method however while the get method gets data, the post method posts data to the defined route.
 
 ```javascript
@@ -122,6 +128,7 @@ There is a special routing method, `app.all()`, used to load middleware function
 ```
 
 **Route paths**
+
 Route paths, in combination with a request method, define the endpoints at which requests can be made. Route paths can be strings, string patterns, or regular expressions. For simplicity we often just keep it as strings.
 
 Here are some examples of route paths based on strings. This route path will match requests to the root route, `/`:
@@ -141,6 +148,7 @@ Here are some examples of route paths based on strings. This route path will mat
 ```
 
 **Route Parameters**
+
 Route parameters are named URL segments that are used to capture the values specified at their position in the URL. To define routes with route parameters, simply specify the route parameters in the path of the route as shown below:
 
 ```javascript
@@ -158,7 +166,7 @@ The captured values are populated in the `req.params` object, with the name of t
 ```
 
 
-## Section 3: Controller functions
+## Task 3: Controller functions
 
 You can provide multiple callback functions that behave like [middleware](https://expressjs.com/en/guide/using-middleware.html) to handle requests. The only exception is that these callbacks might invoke `next('route')` to bypass the remaining route callbacks. You can use this mechanism to impose pre-conditions on a route, then pass control to subsequent routes if there’s no reason to proceed with the current route.
 
@@ -184,7 +192,7 @@ Alternatively, we can use more than one callback function to handle the same rou
 ```
 
 
-## Section 4: Views
+## Task 4: Views
 
 Views are simply the templates used by controllers to render data to the users. Instead of responding with text when someone visits our root route, we’d like to respond with an HTML file. And the way we can do this is by using what we call templates. 
 
@@ -194,7 +202,8 @@ Templates are predefined ways of rendering html contents to users in Node applic
 [Ejs](https://www.npmjs.com/package/ejs). 
 They all work great and the choice of use is typically personal.
 
-**Task 2: Get contents on screen with a template**
+**Get contents on screen with a template**
+
 For this task we’ll be using ejs. EJS is a templating language like the rest and to use it with express, we have to first set up the view engine.
 
 *A* ***template engine*** *enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page in Node.js applications.*
